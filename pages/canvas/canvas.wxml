@@ -1,0 +1,40 @@
+
+
+<view class="container">
+<!-- canvas.wxml -->
+<canvas style="width: 750rpx; height: 750rpx;" class = "canvas" canvas-id="firstCanvas"></canvas>
+
+<import src="dice/dice-template.wxml" />
+
+<view id="cover" style = "background-color:{{covercolor}}">
+
+</view>
+
+
+<view id="dice-zone">
+  <block wx:for="{{dicesData}}">
+    <template is="dice-template" data="{{...item}}" />
+  </block>
+</view>
+
+
+
+<view class="section">
+  <view class="section__title">骰子数量</view>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+      {{array[index]}}
+    </view>
+  </picker>
+</view>
+
+<view id="btn-roll-container1" catchtap="onRollTap" hidden="{{hideBtn}}">
+  <text id="btn-roll" >摇</text>
+</view>
+
+<view id="btn-roll-container2" bindtouchstart="onOpenTap" bindtouchend="onCloseTap" hidden="{{hideBtn}}">
+  <text id="btn-roll" >开</text>
+</view>
+
+
+  </view>
